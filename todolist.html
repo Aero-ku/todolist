@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style:none;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+            background: #eee;
+        }
+        .wrapper{
+            margin: 100px auto;
+            width: 280px;
+            background: #fff;
+            box-shadow: 1px 1px 3px #ccc;
+        }
+        .wrapper .inp{
+            position:relative;
+            display: block;
+            text-indent: 2em;
+            height: 30px;
+            line-height: 30px;
+            width: 100%;
+            border: 0;
+            border-bottom: 1px solid #ccc;
+            box-shadow: 1px 1px 3px #ccc;
+        }
+        .inp:before{
+            position:absolute;
+            content:'';
+            left:12px;
+            top: 13px;
+            border-top: 6px solid #666;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            }
+        .inp:after{
+            position:absolute;
+            content: '';
+            left: 12px;
+            top: 12px;
+            border-bottom: 6px solid transparent;
+            border-top: 6px solid white;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+        }
+        .wrapper .inp input{
+            position: absolute;
+            border: 0px;
+            width: 166px;
+            top: 0;
+            left: 33px;
+            border-bottom: 1px solid #ccc;
+            outline: 0;
+            height: 30px;
+            line-height: 30px;
+            font-size: 16px;
+        }
+        .wrapper ul{
+            width: 100%;
+        }
+        .wrapper ul li{
+            position: relative;
+            text-indent: 2em;
+            width:100%;
+            padding: 3px 0;
+            height:30px;
+            background:#fff;
+        }
+        .wrapper ul li input{
+            border: 0;
+            border-bottom: 1px solid #aaa;
+        }
+        .wrapper ul li span{
+            position: absolute;
+            top: calc(50% - 11px);
+            right: 24px;
+            height:12px;
+            width:1px;
+            background:#666;
+            cursor: pointer;
+        }
+        .wrapper ul li span:nth-of-type(1){
+            transform:rotateZ(45deg);
+        }
+        .wrapper ul li span:nth-of-type(2){
+            transform:rotateZ(-45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="inp">
+            <input type="text">
+        </div>
+        <ul>
+            <li>
+                <p>1</p>
+                <span></span><span></span>
+            </li>
+            <li>
+                <p>2</p>
+                <span></span><span></span>
+            </li>
+            <li>
+                <p>3</p>
+                <span></span><span></span>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var listArr = []
+    var oInp = document.getElementsByClassName('inp')[0];
+    oInp.onkeydown = function(e){
+        var e = e || window.event;
+        var str = '';
+        if (e.keyCode == 13) {
+            var oInpValue = document.getElementsByTagName('input')[0].value;
+            listArr.push(oInpValue)
+            document.getElementsByTagName('input')[0].value = ''
+        }
+    }
+    function showList(arr){
+    }
+</script>
+</html>
